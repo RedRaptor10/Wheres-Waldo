@@ -49,7 +49,7 @@ const Leaderboard = () => {
 					</tr>
 				</tbody>
 			</table>
-			<button id="reset-leaderboard-btn" onClick={resetLeaderboard}>Reset Leaderboard</button>
+			{/*<button id="reset-leaderboard-btn" onClick={resetLeaderboard}>Reset Leaderboard</button>*/}
 		</div>
 	);
 }
