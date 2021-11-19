@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Wheres-Waldo/static/css/main.884ef320.chunk.css",
-    "main.js": "/Wheres-Waldo/static/js/main.c55b8e37.chunk.js",
-    "main.js.map": "/Wheres-Waldo/static/js/main.c55b8e37.chunk.js.map",
+    "main.js": "/Wheres-Waldo/static/js/main.040a1dfc.chunk.js",
+    "main.js.map": "/Wheres-Waldo/static/js/main.040a1dfc.chunk.js.map",
     "runtime-main.js": "/Wheres-Waldo/static/js/runtime-main.331fe0b9.js",
     "runtime-main.js.map": "/Wheres-Waldo/static/js/runtime-main.331fe0b9.js.map",
     "static/js/2.781c7cfe.chunk.js": "/Wheres-Waldo/static/js/2.781c7cfe.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.331fe0b9.js",
     "static/js/2.781c7cfe.chunk.js",
     "static/css/main.884ef320.chunk.css",
-    "static/js/main.c55b8e37.chunk.js"
+    "static/js/main.040a1dfc.chunk.js"
   ]
 }
