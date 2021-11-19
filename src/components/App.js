@@ -1,7 +1,7 @@
 import React from "react";
 import { initializeApp } from "firebase/app";
 import { getFirebaseConfig } from "../firebase-config.js";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
@@ -13,7 +13,7 @@ const App = () => {
 	initializeApp(firebaseAppConfig);
 
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<Header />
 			<Routes>
 				<Route exact path="/" element={<Home />} />
@@ -21,7 +21,7 @@ const App = () => {
 				<Route exact path="/leaderboard" element={<Leaderboard />} />
 			</Routes>
 			<Footer />
-		</BrowserRouter>
+		</HashRouter>
 	);
 };
 
