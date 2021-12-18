@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getFirestore, collection, doc, addDoc, deleteDoc, getDocs, query, orderBy, limit } from "firebase/firestore";
+import { getAuth, signInAnonymously } from "firebase/auth";
 import formatTime from '../functions/formatTime';
 
 const Results = ({elapsedTime}) => {
@@ -53,26 +54,31 @@ const Results = ({elapsedTime}) => {
 		try {
 			const db = getFirestore();
 
-			// Delete lowest high score from database
-			const scoresLimit = 10;
-			const scoresRef = collection(db, "scores");
-			const q = query(scoresRef, orderBy("score"), limit(scoresLimit));
-			const highScoresSnapshot = await getDocs(q);
-			let index = 0;
-			highScoresSnapshot.forEach((d) => {
-				if (index === scoresLimit - 1) {
-					deleteDoc(doc(db, "scores", d.ref.id));
-				}
-				index++;
-			});
+			// Sign-in anonymously to temporary account
+			const auth = getAuth();
+			signInAnonymously(auth)
+			.then(async () => {
+				// Delete lowest high score from database
+				const scoresLimit = 10;
+				const scoresRef = collection(db, "scores");
+				const q = query(scoresRef, orderBy("score"), limit(scoresLimit));
+				const highScoresSnapshot = await getDocs(q);
+				let index = 0;
+				highScoresSnapshot.forEach((d) => {
+					if (index === scoresLimit - 1) {
+						deleteDoc(doc(db, "scores", d.ref.id));
+					}
+					index++;
+				});
 
-			// Add a new document with a generated id
-			await addDoc(collection(db, "scores"), {
-				name: formName,
-				score: elapsedTime
-			});
+				// Add a new document with a generated id
+				await addDoc(collection(db, "scores"), {
+					name: formName,
+					score: elapsedTime
+				});
 
-			setSubmitted(true);
+				setSubmitted(true);
+			});
 		} catch (error) {
 			console.log(error);
 		}

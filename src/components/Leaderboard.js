@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { getFirestore, collection, doc, deleteDoc, query, getDocs, orderBy, limit } from "firebase/firestore";
+import { getFirestore, collection, query, getDocs, orderBy, limit } from "firebase/firestore";
+// import { doc, deleteDoc } from "firebase/firestore";
 import formatTime from '../functions/formatTime';
 
 const Leaderboard = () => {
@@ -26,6 +27,7 @@ const Leaderboard = () => {
 		}
 	};
 
+	/* Optional Reset Leaderboard function
 	const resetLeaderboard = async () => {
 		// Delete all high scores from database
 		const db = getFirestore();
@@ -33,7 +35,7 @@ const Leaderboard = () => {
 		highScoresSnapshot.forEach((d) => {
 			deleteDoc(doc(db, "scores", d.ref.id));
 		});
-	};
+	};*/
 
 	// Get scores on componentDidMount & componentDidUpdate
 	useEffect(() => {
