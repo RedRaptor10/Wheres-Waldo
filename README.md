@@ -4,6 +4,8 @@ A Where's Waldo game app created through [TheOdinProject](https://www.theodinpro
 
 [Live Demo](https://redraptor10.github.io/Wheres-Waldo)
 
+![Where's Waldo](/src/images/cover.jpg)
+
 # Instructions
 
 1. Find characters Waldo, Odlaw and Wizard by clicking anywhere on the image and selecting the character's name. Once all characters have been found, your time will be displayed.
